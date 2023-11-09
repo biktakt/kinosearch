@@ -1,0 +1,16 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - '**/*.g.dart'
+    - '**/*.freezed.dart'
+
+linter:
+  rules:
+    always_declare_return_types: true
+    avoid_redundant_argument_values: true
+    directives_ordering: true
+    eol_at_end_of_file: true
+    prefer_final_locals: true
+    prefer_relative_imports: true
+    require_trailing_commas: true
