@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'services/provider/film_provider.dart';
 import 'src/app.dart';
-import 'src/settings/settings_controller.dart';
-import 'src/settings/settings_service.dart';
+
+// late ObjectBox objectbox;
 
 void main() async {
-  final settingsController = SettingsController(SettingsService());
+  runApp(const Center(child: CircularProgressIndicator()));
 
-  // Load the user's preferred theme while the splash screen is displayed.
-  // This prevents a sudden theme change when the app is first displayed.
-  await settingsController.loadSettings();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(MyApp(settingsController: settingsController));
+  final container = ProviderContainer();
+  await container.read(objectBoxServiceProvider).init();
+
+  runApp(
+    UncontrolledProviderScope(
+      container: container,
+      child: const KinoSearchApp(),
+    ),
+  );
 }
