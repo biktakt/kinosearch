@@ -11,7 +11,6 @@ class FilmDetailsView extends ConsumerWidget {
   });
 
   final int filmId;
-  // static const routeName = '/film_details';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

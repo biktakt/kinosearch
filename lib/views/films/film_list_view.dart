@@ -20,11 +20,7 @@ class FilmListView extends HookConsumerWidget {
       onRefresh: () {
         // ignore: unused_result
         ref.refresh(filtredFilmsProvider(searchTerm));
-        return Future.delayed(
-          const Duration(
-            seconds: 1,
-          ),
-        );
+        return Future.delayed(const Duration(seconds: 1));
       },
       child: filmsStream.when(
         data: (films) {

@@ -17,9 +17,7 @@ class FilmModel {
     required this.country,
   });
 
-  factory FilmModel.empty() {
-    return FilmModel(title: '', year: '', country: '');
-  }
+  factory FilmModel.empty() => FilmModel(title: '', year: '', country: '');
 
   @override
   String toString() => 'Film(id: $id, '
