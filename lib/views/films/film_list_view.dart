@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../services/provider/film_provider.dart';
+import '../../services/sync_service.dart';
 import 'film_details_view.dart';
 
 class FilmListView extends HookConsumerWidget {
@@ -77,7 +78,8 @@ class FilmListView extends HookConsumerWidget {
                 trailing: IconButton(
                   icon: const Icon(Icons.delete),
                   onPressed: () =>
-                      ref.read(objectBoxServiceProvider).deleteFilm(film.id),
+                      // ref.read(objectBoxServiceProvider).deleteFilm(film.id),
+                      MySyncService.instance.sendPort.send(film.id),
                 ),
               );
             },

@@ -30,7 +30,7 @@ class ObjectBoxService {
     return filmsQuery.watch(triggerImmediately: true).map((q) => q.find());
   }
 
-  int insertFilm(FilmModel film) => filmBox.put(film);
+  // int insertFilm(FilmModel film) => filmBox.put(film);
 
-  bool deleteFilm(int id) => filmBox.remove(id);
+  // bool deleteFilm(int id) => filmBox.remove(id);
 }

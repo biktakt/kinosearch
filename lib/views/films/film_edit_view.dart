@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../models/film_model.dart';
 import '../../services/provider/film_provider.dart';
+import '../../services/sync_service.dart';
 
 class FilmEditView extends HookConsumerWidget {
   const FilmEditView({
@@ -71,7 +72,8 @@ class FilmEditView extends HookConsumerWidget {
                   country: countryController.text,
                 );
 
-                ref.read(objectBoxServiceProvider).insertFilm(newFilm);
+                // ref.read(objectBoxServiceProvider).insertFilm(newFilm);
+                MySyncService.instance.sendPort.send(newFilm);
 
                 Navigator.of(context).pop();
               },
